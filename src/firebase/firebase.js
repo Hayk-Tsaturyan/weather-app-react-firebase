@@ -2,12 +2,12 @@ import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyCUA6u-2mHXz-pDE4cDbd37dFjpl0bLKr4",
-  authDomain: "wheather-app-a9cd3.firebaseapp.com",
-  projectId: "wheather-app-a9cd3",
-  storageBucket: "wheather-app-a9cd3.firebasestorage.app",
-  messagingSenderId: "822493511921",
-  appId: "1:822493511921:web:91dfebdc2e3f4c8191a950",
+  apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
+  authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
+  projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
+  storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.REACT_APP_FIREBASE_APP_ID,
   measurementId: "G-LM49BCQLFN",
 };
 

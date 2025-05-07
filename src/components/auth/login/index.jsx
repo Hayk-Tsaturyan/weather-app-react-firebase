@@ -9,7 +9,6 @@ import { ReactComponent as GoogleIcon } from "../../../assets/google.svg";
 import {
   CenteredText,
   Container,
-  ErrorText,
   Form,
   GoogleSignInButton,
   Input,
@@ -26,7 +25,6 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isSigningIn, setIsSigningIn] = useState(false);
-  const [errorMessage, setErrorMessage] = useState("");
 
   const onSubmit = async (e) => {
     e.preventDefault();
@@ -79,8 +77,6 @@ const Login = () => {
                 }}
               />
             </div>
-
-            {errorMessage && <ErrorText>{errorMessage}</ErrorText>}
 
             <SubmitButton type="submit" disabled={isSigningIn}>
               {isSigningIn ? "Signing In..." : "Sign In"}

@@ -46,7 +46,7 @@ const Forecast = () => {
   const [hourlyForecast, setHourlyForecast] = useState(null);
   const [dailyForecast, setDailyForecast] = useState(null);
 
-  const API_KEY = "cb9fa564f05d954743e8a57040a52168";
+  const API_KEY = process.env.REACT_APP_WEATHER_API_KEY;
 
   useEffect(() => {
     if (coords) {
@@ -63,7 +63,7 @@ const Forecast = () => {
       };
       fetchForecast();
     }
-  }, [coords]);
+  }, [coords, API_KEY]);
 
   useEffect(() => {
     if (navigator.geolocation) {

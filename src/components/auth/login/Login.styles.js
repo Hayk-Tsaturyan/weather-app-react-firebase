@@ -15,11 +15,6 @@ export const Container = styled.div`
   align-items: center;
 `;
 
-export const ErrorText = styled.span`
-  color: #dc2626;
-  font-weight: 700;
-`;
-
 export const Form = styled.form`
   display: flex;
   flex-direction: column;
