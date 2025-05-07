@@ -1,11 +1,10 @@
 import React, { useState } from "react";
-import { Navigate, Link, useNavigate } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 import { useAuth } from "../../../contexts/authContext";
 import { doCreateUserWithEmailAndPassword } from "../../../firebase/auth";
 import {
   CenteredText,
   Container,
-  ErrorText,
   Form,
   Input,
   Label,
@@ -16,14 +15,10 @@ import {
 } from "./Register.styles";
 
 const Register = () => {
-  const navigate = useNavigate();
-
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setconfirmPassword] = useState("");
   const [isRegistering, setIsRegistering] = useState(false);
-  const [errorMessage, setErrorMessage] = useState("");
-
   const { userLoggedIn } = useAuth();
 
   const onSubmit = async (e) => {
@@ -83,18 +78,12 @@ const Register = () => {
               />
             </div>
 
-            {errorMessage && <ErrorText>{errorMessage}</ErrorText>}
-
             <SubmitButton type="submit" disabled={isRegistering}>
               {isRegistering ? "Signing Up..." : "Sign Up"}
             </SubmitButton>
             <CenteredText>
               Already have an account? {"   "}
-              <StyledLink
-                to={"/login"}
-              >
-                Continue
-              </StyledLink>
+              <StyledLink to={"/login"}>Continue</StyledLink>
             </CenteredText>
           </Form>
         </Wrapper>

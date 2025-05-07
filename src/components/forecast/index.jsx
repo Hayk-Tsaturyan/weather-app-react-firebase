@@ -12,13 +12,6 @@ import {
   Title,
   WeatherIcon,
 } from "./Forecast.styles";
-import {
-  WiHumidity,
-  WiBarometer,
-  WiStrongWind,
-  WiSunrise,
-  WiSunset,
-} from "react-icons/wi";
 import axios from "axios";
 
 function getDaily(list) {
@@ -101,7 +94,7 @@ const Forecast = () => {
           Hourly
         </StyledButton>
         <StyledButton
-        active={period === "daily"}
+          active={period === "daily"}
           onClick={() => {
             setPeriod("daily");
           }}
@@ -109,7 +102,7 @@ const Forecast = () => {
           Daily
         </StyledButton>
       </ButtonsWrapper>
-      {hourlyForecast ? (
+      {hourlyForecast && dailyForecast ? (
         <>
           {period === "hourly" && (
             <CardContainer>
