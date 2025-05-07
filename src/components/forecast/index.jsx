@@ -5,6 +5,7 @@ import {
   CardContainer,
   Container,
   Date,
+  DateTime,
   Description,
   StyledButton,
   Temperature,
@@ -127,8 +128,10 @@ const Forecast = () => {
             <CardContainer>
               {dailyForecast.map((item, index) => (
                 <Card key={index}>
-                  <Date>{extractDayMonth(item.dt_txt)}</Date>
-                  <Time>{extractTime(item.dt_txt)}</Time>
+                  <DateTime>
+                    <Date>{extractDayMonth(item.dt_txt)}</Date>
+                    <Time>{extractTime(item.dt_txt) === "12:00" ? "Day" : "Night"}</Time>
+                  </DateTime>
                   <WeatherIcon
                     src={`http://openweathermap.org/img/wn/${item.weather[0].icon}@2x.png`}
                     alt="Weather Icon"

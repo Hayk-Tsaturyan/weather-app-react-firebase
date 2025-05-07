@@ -5,12 +5,17 @@ export const Container = styled.div`
   flex-direction: column;
   gap: 1rem;
   width: 420px;
-  border: 1px solid #d1d5db;
+  border: 1px solid rgb(2, 73, 253);
   justify-content: start;
-  align-items: start;
-  background-color: rgb(178, 201, 248);
+  align-items: center;
+  background-color: rgb(204, 218, 247);
   padding: 2rem;
   border-radius: 0.5rem;
+
+  @media (max-width: 500px) {
+    width: 300px;
+    padding: 1rem;
+  }
 `;
 
 export const Description = styled.label`
@@ -36,11 +41,17 @@ export const Label = styled.div`
 `;
 
 export const Location = styled.div`
-  font-size: 1.5rem;
+  font-size: 2rem;
+  color: rgb(214, 117, 20);
 `;
 
 export const Temperature = styled.div`
   font-size: 3rem;
+  color: rgb(2, 73, 253);
+
+  @media (max-width: 500px) {
+    font-size: 1.5rem;
+  }
 `;
 
 export const TemperatureWrapper = styled.div`
@@ -48,6 +59,11 @@ export const TemperatureWrapper = styled.div`
   flex-direction: column;
   align-items: start;
   justify-content: start;
+  gap: 10px;
+
+  @media (max-width: 500px) {
+    align-items: center;
+  }
 `;
 
 export const WeatherDescription = styled.div`
@@ -56,6 +72,10 @@ export const WeatherDescription = styled.div`
   gap: 1rem;
   align-items: start;
   justify-content: start;
+
+  @media (max-width: 500px) {
+    gap: 0.75rem;
+  }
 `;
 
 export const WeatherDetails = styled.div`

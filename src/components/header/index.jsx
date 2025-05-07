@@ -1,12 +1,7 @@
 import React from "react";
 import { useAuth } from "../../contexts/authContext";
 import { doSignOut } from "../../firebase/auth";
-import {
-  Container,
-  LogInLink,
-  LogOutButton,
-  RegisterLink,
-} from "./Header.styles";
+import { Container, StyledButton } from "./Header.styles";
 
 const Header = () => {
   const { userLoggedIn } = useAuth();
@@ -15,18 +10,18 @@ const Header = () => {
     <Container>
       {userLoggedIn ? (
         <>
-          <LogOutButton
+          <StyledButton
             onClick={() => {
               doSignOut();
             }}
           >
             Logout
-          </LogOutButton>
+          </StyledButton>
         </>
       ) : (
         <>
-          <LogInLink to={"/login"}>Login</LogInLink>
-          <RegisterLink to={"/register"}>Register New Account</RegisterLink>
+          <StyledButton to={"/login"}>Login</StyledButton>
+          <StyledButton to={"/register"}>Register</StyledButton>
         </>
       )}
     </Container>

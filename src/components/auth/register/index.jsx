@@ -6,6 +6,7 @@ import {
   CenteredText,
   Container,
   Form,
+  FormElement,
   Input,
   Label,
   StyledLink,
@@ -37,7 +38,7 @@ const Register = () => {
         <Wrapper>
           <Title>Create a New Account</Title>
           <Form onSubmit={onSubmit}>
-            <div>
+            <FormElement>
               <Label>Email</Label>
               <Input
                 type="email"
@@ -48,9 +49,8 @@ const Register = () => {
                   setEmail(e.target.value);
                 }}
               />
-            </div>
-
-            <div>
+            </FormElement>
+            <FormElement>
               <Label>Password</Label>
               <Input
                 disabled={isRegistering}
@@ -62,9 +62,8 @@ const Register = () => {
                   setPassword(e.target.value);
                 }}
               />
-            </div>
-
-            <div>
+            </FormElement>
+            <FormElement>
               <Label>Confirm Password</Label>
               <Input
                 disabled={isRegistering}
@@ -76,7 +75,7 @@ const Register = () => {
                   setconfirmPassword(e.target.value);
                 }}
               />
-            </div>
+            </FormElement>
 
             <SubmitButton type="submit" disabled={isRegistering}>
               {isRegistering ? "Signing Up..." : "Sign Up"}

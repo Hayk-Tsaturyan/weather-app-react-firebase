@@ -10,6 +10,7 @@ import {
   CenteredText,
   Container,
   Form,
+  FormElement,
   GoogleSignInButton,
   Input,
   Label,
@@ -52,7 +53,7 @@ const Login = () => {
         <Wrapper>
           <Title>Welcome Back</Title>
           <Form onSubmit={onSubmit}>
-            <div>
+            <FormElement>
               <Label>Email</Label>
               <Input
                 type="email"
@@ -63,9 +64,8 @@ const Login = () => {
                   setEmail(e.target.value);
                 }}
               />
-            </div>
-
-            <div>
+            </FormElement>
+            <FormElement>
               <Label>Password</Label>
               <Input
                 type="password"
@@ -76,25 +76,24 @@ const Login = () => {
                   setPassword(e.target.value);
                 }}
               />
-            </div>
-
+            </FormElement>
             <SubmitButton type="submit" disabled={isSigningIn}>
               {isSigningIn ? "Signing In..." : "Sign In"}
             </SubmitButton>
+            <CenteredText>
+              Don't have an account?{" "}
+              <StyledLink to={"/register"}>Sign up</StyledLink>
+            </CenteredText>
+            <GoogleSignInButton
+              disabled={isSigningIn}
+              onClick={(e) => {
+                onGoogleSignIn(e);
+              }}
+            >
+              <GoogleIcon width={20} height={20} />
+              {isSigningIn ? "Signing In..." : "Continue with Google"}
+            </GoogleSignInButton>
           </Form>
-          <CenteredText>
-            Don't have an account?{" "}
-            <StyledLink to={"/register"}>Sign up</StyledLink>
-          </CenteredText>
-          <GoogleSignInButton
-            disabled={isSigningIn}
-            onClick={(e) => {
-              onGoogleSignIn(e);
-            }}
-          >
-            <GoogleIcon width={20} height={20} />
-            {isSigningIn ? "Signing In..." : "Continue with Google"}
-          </GoogleSignInButton>
         </Wrapper>
       </Container>
     </div>
